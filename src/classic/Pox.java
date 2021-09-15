@@ -70,9 +70,9 @@ public class Pox {
 class PoxTest {
     public static void main(String[] args) {
         Pox pox = new Pox();
-        System.out.println("程序1运行结果："+pox.getPox(2,3));
-        System.out.println("程序2运行结果："+pox.getPox2(2,3));
-        System.out.println("程序3运行结果："+pox.getPox3(2,3));
-        System.out.println("程序4运行结果："+pox.getPox4(2,3));
+        System.out.println("程序1的运行结果："+pox.getPox(2,3));
+        System.out.println("程序2的运行结果："+pox.getPox2(2,3));
+        System.out.println("程序3的运行结果："+pox.getPox3(2,3));
+        System.out.println("程序4的运行结果："+pox.getPox4(2,3));
     }
 }
