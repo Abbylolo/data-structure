@@ -21,6 +21,23 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    /**
+     * 递归实现二分查找
+     */
+    public int search2(int low,int high,int[] nums,int target) {
+        int mid = low + (high - low) / 2;
+        if(low <= high) {
+            if(nums[mid] == target) {
+                return mid;
+            } else if(nums[mid] > target){
+                return search2(low,mid - 1,nums,target);
+            } else {
+                return search2(mid + 1,high,nums,target);
+            }
+        }
+        return -1;
+    }
 }
 
 class BinarySearchTest {
@@ -28,6 +45,7 @@ class BinarySearchTest {
         int[] nums = {1,2,3,6,8,11};
         int target = 2;
         int result = new BinarySearch().search(nums,target);
-        System.out.println(result);
+        int result2 = new BinarySearch().search2(0,nums.length - 1,nums,11);
+        System.out.println("普通二分："+result+"\n递归二分："+result2);
     }
 }
