@@ -30,7 +30,7 @@ public class BinarySearch {
         if(low <= high) {
             if(nums[mid] == target) {
                 return mid;
-            } else if(nums[mid] > target){
+            } else if(nums[mid] > target) {
                 return search2(low,mid - 1,nums,target);
             } else {
                 return search2(mid + 1,high,nums,target);

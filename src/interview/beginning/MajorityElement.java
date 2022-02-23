@@ -17,10 +17,11 @@ import java.util.Map;
 public class MajorityElement {
     public static void main(String[] args) {
         int[] nums = {3,1,1,1,1,4,1,5,3};
-        System.out.println("法一：" + new MajorityElement().majorityElement(nums));
-        System.out.println("法二：" + new MajorityElement().majorityElement2(nums));
-        System.out.println("法三：" + new MajorityElement().majorityElement3(nums));
-        System.out.println("法四：" + new MajorityElement().majorityElement4(nums));
+        MajorityElement majorityElement = new MajorityElement();
+        System.out.println("法一：" + majorityElement.majorityElement(nums));
+        System.out.println("法二：" + majorityElement.majorityElement2(nums));
+        System.out.println("法三：" + majorityElement.majorityElement3(nums));
+        System.out.println("法四：" + majorityElement.majorityElement4(nums));
     }
 
     /**
