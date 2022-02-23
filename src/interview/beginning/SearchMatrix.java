@@ -12,14 +12,14 @@ package interview.beginning;
 public class SearchMatrix {
     public static void main(String[] args) {
         SearchMatrix searchMatrix = new SearchMatrix();
-        int matrix[][] = {{1,4,7,11,15}, {2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}}, target = 20;
+        int matrix[][] = {{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}}, target = 20;
         System.out.println(searchMatrix.searchMatrix(matrix,target));
     }
     /**
      * 法一：二叉排序树。从左下方或右上方开找
-     * @param matrix
-     * @param target
-     * @return
+     * @param matrix 二维矩阵
+     * @param target 目标数字
+     * @return 是否存在目标数字
      */
     public boolean searchMatrix(int[][] matrix, int target) {
         int row = 0, column = matrix[0].length - 1;
