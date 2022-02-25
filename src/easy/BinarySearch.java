@@ -5,6 +5,13 @@ package easy;
  * @author Abby
  */
 public class BinarySearch {
+    public static void main(String[] args) {
+        int[] nums = {1,2,3,6,8,11};
+        int target = 2;
+        int result = new BinarySearch().search(nums,target);
+        int result2 = new BinarySearch().search2(0,nums.length - 1,nums,11);
+        System.out.println("普通二分："+result+"\n递归二分："+result2);
+    }
     public int search(int[] nums, int target) {
         int head = 0;
         int tail = nums.length - 1;
@@ -40,12 +47,3 @@ public class BinarySearch {
     }
 }
 
-class BinarySearchTest {
-    public static void main(String[] args) {
-        int[] nums = {1,2,3,6,8,11};
-        int target = 2;
-        int result = new BinarySearch().search(nums,target);
-        int result2 = new BinarySearch().search2(0,nums.length - 1,nums,11);
-        System.out.println("普通二分："+result+"\n递归二分："+result2);
-    }
-}
