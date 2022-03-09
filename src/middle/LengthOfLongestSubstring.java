@@ -29,18 +29,18 @@ public class LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
         int len = 0;
         char[] str = s.toCharArray();
-        List<Character> substring = new ArrayList<>();
+        List<Character> subString = new ArrayList();
         for(char c : str) {
-            if(!substring.contains(c)) {
-                substring.add(c);
-            } else {
-                len = Math.max(len,substring.size());
-                substring = substring.subList(substring.indexOf(c) + 1,substring.size());
-                substring.add(c);
+            if(subString.contains(c)) {
+                // 更新记录此次最长子串的长度
+                len = Math.max(len, subString.size());
+                //更新子串，滑动窗口
+                subString = subString.subList(subString.indexOf(c) + 1, subString.size());
             }
+            subString.add(c);
         }
         // 比较最后一个子串
-        len = Math.max(len,substring.size());
+        len = Math.max(len, subString.size());
         return len;
     }
 
