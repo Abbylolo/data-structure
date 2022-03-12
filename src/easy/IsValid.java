@@ -21,40 +21,41 @@ public class IsValid {
      * 法一：栈
      * 思路：栈先进后出，HashMap键值对判断是否为一对。
      * 遇到左括号入栈，遇到右括号判断和栈顶出栈的是否匹配，匹配则出栈左括号。遍历完毕看栈是否为空.
-     * @param s
-     * @return
+     * @param s 括号字符串
+     * @return 字符串是否有效
      */
     public boolean isValid(String s) {
         int len = s.length();
-        if(len % 2 !=0) {
+        if(len % 2 == 1) {
             return false;
         }
-        Map<Character, Character> pairs = new HashMap<Character, Character>(3){
-            {
-                put(')','(');
-                put(']','[');
-                put('}','{');
-            }
-        };
+        // 要求1——左右括号配对-HashMap；要求2——正确顺序闭合-栈先进先出
+        Map<Character, Character> pairs = new HashMap<Character, Character>();
+        pairs.put('(',')');
+        pairs.put('{','}');
+        pairs.put('[',']');
         Deque<Character> stack = new LinkedList<>();
         for(int i = 0; i < len; i++) {
-            char c = s.charAt(i);
-            // 检测到右部
-            if(pairs.containsKey(c)) {
-                // 判断是否对称
-                if(stack.isEmpty() || !stack.peek().equals(pairs.get(c))) {
+            char ch = s.charAt(i);
+            // 如果遍历到左派括号
+            if(pairs.containsKey(ch)) {
+                stack.push(ch);
+            } else {
+                // 遍历到右派括号，判断是否配对，配对则将左括号pop弹出
+                // 这个右括号是否和栈顶元素(左括号)所对应的右括号相等
+                // 这里判断是否为空是防止右括号比左括号多-{}}
+                if(stack.isEmpty() || !pairs.get(stack.peek()).equals(ch)) {
                     return false;
                 }
                 stack.pop();
-            } else {
-                stack.push(c);
             }
         }
+        // 这里判断是否为空是防止左括号多出-{{}
         return stack.isEmpty();
     }
 
     public static void main(String[] args) {
         IsValid isValid = new IsValid();
-        System.out.println(isValid.isValid("()[]{}"));
+        System.out.println(isValid.isValid("()[{}]{}"));
     }
 }
