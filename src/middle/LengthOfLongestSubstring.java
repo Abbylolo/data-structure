@@ -5,16 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * @author Abby
- * @date 2022/03/01
  * 3. 无重复字符的最长子串
  * 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
- *
  * 输入: s = "pwwkew"  输出: 3
+ * @author Abby
+ * @date 2022/03/01
  **/
 public class LengthOfLongestSubstring {
     public static void main(String[] args) {
-        String s = "advdaf";
+        String s = "advdafajklh";
         LengthOfLongestSubstring lenLongSubStr = new LengthOfLongestSubstring();
         System.out.println(lenLongSubStr.lengthOfLongestSubstring(s));
         System.out.println(lenLongSubStr.lengthOfLongestSubstring2(s));
@@ -45,7 +44,7 @@ public class LengthOfLongestSubstring {
     }
 
     /**
-     * 滑动窗口HashMap (Map中不允许重复的键)
+     * 法二：滑动窗口HashMap (Map中不允许重复的键)
      * 以键值对的形式。key-字符，value-索引号.
      * Map.put()方法覆盖功能：map中key是不能重复的，当我们对相同的key进行put操作时，最后一个key对应的value会把前一个相同的value覆盖掉。
      */
@@ -56,7 +55,7 @@ public class LengthOfLongestSubstring {
             char ch = s.charAt(end);
             if(hashMap.containsKey(ch)) {
                 // 由于map中旧值并未删除，后续正常序列中的值可能和旧值相等，此时start不能改变，故需比较取大
-                start = Math.max(start, hashMap.get(ch) + 1);
+                  start = Math.max(start, hashMap.get(ch) + 1);
             }
             // 最后一个key对应的value会把前一个相同的value覆盖。更新索引值。
             hashMap.put(ch,end);
